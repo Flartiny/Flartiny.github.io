@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Flartiny's Blog</title><link>https://Flartiny.github.io</link><description>事已至此,先吃点吧...</description><copyright>Flartiny's Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/32789998?v=4</url><title>avatar</title><link>https://Flartiny.github.io</link></image><lastBuildDate>Tue, 13 Aug 2024 13:53:46 +0000</lastBuildDate><managingEditor>Flartiny's Blog</managingEditor><ttl>60</ttl><webMaster>Flartiny's Blog</webMaster><item><title>Linux(Ubuntu 22.04)下Teamspeak服务器搭建</title><link>https://Flartiny.github.io/post/Linux%28Ubuntu%2022.04%29-xia-Teamspeak-fu-wu-qi-da-jian.html</link><description>Teamspeak可以部署在云服务器上为使用者提供语音等服务，而且不会占用太多资源&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Flartiny's Blog</title><link>https://Flartiny.github.io</link><description>事已至此,先吃点吧...</description><copyright>Flartiny's Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/32789998?v=4</url><title>avatar</title><link>https://Flartiny.github.io</link></image><lastBuildDate>Wed, 14 Aug 2024 02:56:42 +0000</lastBuildDate><managingEditor>Flartiny's Blog</managingEditor><ttl>60</ttl><webMaster>Flartiny's Blog</webMaster><item><title>使用Wub(Windows Update Blocker)可能带来的影响</title><link>https://Flartiny.github.io/post/shi-yong-Wub%28Windows%20Update%20Blocker%29-ke-neng-dai-lai-de-ying-xiang.html</link><description>在使用win11系统的过程中，陆陆续续遇到了一些问题，后来突然意识到出问题的都是微软相关的服务：&#13;
+&#13;
+1. Microsoft Store无法连接&#13;
+2. Xbox应用有时候连接也出问题&#13;
+3. Minecraft验证和游戏内登录有时候失败&#13;
+4. wsl2安装不成功&#13;
+&#13;
+重新在Wub把自动更新恢复到enable状态成功解决了以上问题，之后有需要再去禁用update就行。</description><guid isPermaLink="true">https://Flartiny.github.io/post/shi-yong-Wub%28Windows%20Update%20Blocker%29-ke-neng-dai-lai-de-ying-xiang.html</guid><pubDate>Wed, 14 Aug 2024 02:56:20 +0000</pubDate></item><item><title>Linux(Ubuntu 22.04)下Teamspeak服务器搭建</title><link>https://Flartiny.github.io/post/Linux%28Ubuntu%2022.04%29-xia-Teamspeak-fu-wu-qi-da-jian.html</link><description>Teamspeak可以部署在云服务器上为使用者提供语音等服务，而且不会占用太多资源&#13;
 &#13;
 由于网络因素，推荐本地下载后上传到云服务器&#13;
 下载地址 https://teamspeak.com/zh-CN/downloads/#server&#13;
