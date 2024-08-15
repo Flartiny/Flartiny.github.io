@@ -1,5 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Flartiny's Blog</title><link>https://Flartiny.github.io</link><description>事已至此,先吃点吧...</description><copyright>Flartiny's Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/32789998?v=4</url><title>avatar</title><link>https://Flartiny.github.io</link></image><lastBuildDate>Wed, 14 Aug 2024 02:56:42 +0000</lastBuildDate><managingEditor>Flartiny's Blog</managingEditor><ttl>60</ttl><webMaster>Flartiny's Blog</webMaster><item><title>使用Wub(Windows Update Blocker)可能带来的影响</title><link>https://Flartiny.github.io/post/shi-yong-Wub%28Windows%20Update%20Blocker%29-ke-neng-dai-lai-de-ying-xiang.html</link><description>在使用win11系统的过程中，陆陆续续遇到了一些问题，后来突然意识到出问题的都是微软相关的服务：&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Flartiny's Blog</title><link>https://Flartiny.github.io</link><description>事已至此,先吃点吧...</description><copyright>Flartiny's Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/32789998?v=4</url><title>avatar</title><link>https://Flartiny.github.io</link></image><lastBuildDate>Thu, 15 Aug 2024 13:48:38 +0000</lastBuildDate><managingEditor>Flartiny's Blog</managingEditor><ttl>60</ttl><webMaster>Flartiny's Blog</webMaster><item><title>win11下pycharm调用wsl2内conda环境以使用jupyter</title><link>https://Flartiny.github.io/post/win11-xia-pycharm-diao-yong-wsl2-nei-conda-huan-jing-yi-shi-yong-jupyter.html</link><description>```&#13;
+conda install jupyter&#13;
+jupyter notebook --generate-config&#13;
+vim ~/.jupyter/jupyter_notebook_config.py&#13;
+```&#13;
+需调整内容如下，可查看相应部分解释，若默认已符合以下状态则不用修改，否则取消注释并完成更改&#13;
+&gt; c.ServerApp.open_browser = False&#13;
+&gt; c.ServerApp.allow_origin = '*'&#13;
+&gt; c.ServerApp.ip = '0.0.0.0'&#13;
+&gt; c.ServerApp.allow_root = True&#13;
+&#13;
+第四条某种程度上是不推荐的做法，但是暂时没有找到好的解决方法。</description><guid isPermaLink="true">https://Flartiny.github.io/post/win11-xia-pycharm-diao-yong-wsl2-nei-conda-huan-jing-yi-shi-yong-jupyter.html</guid><pubDate>Thu, 15 Aug 2024 13:48:14 +0000</pubDate></item><item><title>使用Wub(Windows Update Blocker)可能带来的影响</title><link>https://Flartiny.github.io/post/shi-yong-Wub%28Windows%20Update%20Blocker%29-ke-neng-dai-lai-de-ying-xiang.html</link><description>在使用win11系统的过程中，陆陆续续遇到了一些问题，后来突然意识到出问题的都是微软相关的服务：&#13;
 &#13;
 1. Microsoft Store无法连接&#13;
 2. Xbox应用有时候连接也出问题&#13;
