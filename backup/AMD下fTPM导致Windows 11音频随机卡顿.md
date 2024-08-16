@@ -5,4 +5,6 @@
 4. 如果需要从错误驱动切换回正确驱动，改回“受信任的平台模块2.0”即可
 ![image2](https://pub-d3faa1947eb448819cde832afc98290f.r2.dev/blog/2024/08/7b312c66b1b934809cd66e198d66180e.png)
 
+值得一提的是，关闭TPM会导致拳头(Roit Games)的Vanguard出错，酌情考虑使用
 参考原贴：https://tieba.baidu.com/p/7731759367?pn=1
+卡顿现象参考：https://www.bilibili.com/video/BV1hK4y1H7aJ/
