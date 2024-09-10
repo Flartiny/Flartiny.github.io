@@ -48,7 +48,7 @@
     // 然后后面yes、设置管理员密码之类的东西
     sudo apt install phpmyadmin
 
-![image1](https://imgos.cn/2024/08/12/66b9913b27249.png)
+![image1](https://pub-d3faa1947eb448819cde832afc98290f.r2.dev/blog/2024/09/7dbb8a7cde8345f4a0f87aff5af2537b.png)
 
     sudo systemctl restart apache2.service
     // 访问ip/phpmyadmin进入页面可以登录管理员账户(phpmyadmin;设置的密码)
@@ -142,7 +142,7 @@ cloudns注册账号后免费计划可以获得一个免费域名,以我的为例
 6. 在cloudflare转到'**DNS**'标签，添加A类型记录名称为'**blog**'与上面对应，指向服务器ip
 7. 等待证书等内容生效
 
-![image2](https://imgos.cn/2024/08/12/66b9913ba44b0.png)
+![image2](https://pub-d3faa1947eb448819cde832afc98290f.r2.dev/blog/2024/08/df8416110fab3caf6a3c050d03d530dc.png)
 
 ---
 
