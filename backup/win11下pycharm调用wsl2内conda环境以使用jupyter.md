@@ -10,3 +10,7 @@ vim ~/.jupyter/jupyter_notebook_config.py
 > c.ServerApp.allow_root = True
 
 第四条某种程度上是不推荐的做法，但是暂时没有找到好的解决方法
+
+---
+## 2024/10/24更新
+重装了wsl2，这次网络模式使用了Mirrored，可在wsl2内运行```jupyter lab --no-browser```获取相关信息，配置在pycharm-setting-jupyter servers-configured server中便可启动

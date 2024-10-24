@@ -21,7 +21,11 @@ vim ~/.jupyter/jupyter_notebook_config.py
 > c.ServerApp.ip = '0.0.0.0'
 > c.ServerApp.allow_root = True
 
-第四条某种程度上是不推荐的做法，但是暂时没有找到好的解决方法。">
+第四条某种程度上是不推荐的做法，但是暂时没有找到好的解决方法
+
+---
+## 2024/10/24更新
+重装了wsl2，这次网络模式使用了Mirrored，可在wsl2内运行```jupyter lab --no-browser```获取相关信息，配置在pycharm-setting-jupyter servers-configured server中便可启动。">
 <meta property="og:title" content="win11下pycharm调用wsl2内conda环境以使用jupyter">
 <meta property="og:description" content="```
 conda install jupyter
@@ -34,7 +38,11 @@ vim ~/.jupyter/jupyter_notebook_config.py
 > c.ServerApp.ip = '0.0.0.0'
 > c.ServerApp.allow_root = True
 
-第四条某种程度上是不推荐的做法，但是暂时没有找到好的解决方法。">
+第四条某种程度上是不推荐的做法，但是暂时没有找到好的解决方法
+
+---
+## 2024/10/24更新
+重装了wsl2，这次网络模式使用了Mirrored，可在wsl2内运行```jupyter lab --no-browser```获取相关信息，配置在pycharm-setting-jupyter servers-configured server中便可启动。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://Flartiny.github.io/post/win11-xia-pycharm-diao-yong-wsl2-nei-conda-huan-jing-yi-shi-yong-jupyter.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/32789998?v=4">
@@ -116,7 +124,10 @@ c.ServerApp.allow_origin = '*'<br>
 c.ServerApp.ip = '0.0.0.0'<br>
 c.ServerApp.allow_root = True</p>
 </blockquote>
-<p>第四条某种程度上是不推荐的做法，但是暂时没有找到好的解决方法</p></div>
+<p>第四条某种程度上是不推荐的做法，但是暂时没有找到好的解决方法</p>
+<hr>
+<h2>2024/10/24更新</h2>
+<p>重装了wsl2，这次网络模式使用了Mirrored，可在wsl2内运行<code class="notranslate">jupyter lab --no-browser</code>获取相关信息，配置在pycharm-setting-jupyter servers-configured server中便可启动</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
