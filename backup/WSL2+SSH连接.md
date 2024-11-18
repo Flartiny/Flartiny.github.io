@@ -41,3 +41,8 @@ cat id_rsa.pub >> authorized_keys
 chmod 600 authorized_keys
 sudo service ssh restart
 ```
+
+## ssh服务自启动
+```
+sudo systemctl enable ssh
+```

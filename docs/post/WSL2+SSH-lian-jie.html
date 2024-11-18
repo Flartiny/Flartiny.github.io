@@ -53,6 +53,11 @@ cat id_rsa.pub >> authorized_keys
 chmod 600 authorized_keys
 sudo service ssh restart
 ```
+
+## ssh服务自启动
+```
+sudo systemctl enable ssh
+```
 。">
 <meta property="og:title" content="WSL2+SSH连接">
 <meta property="og:description" content="写于体验Windsurf时，其连接WSL2和vscode的远程连接功能略有区别
@@ -97,6 +102,11 @@ cd .ssh/
 cat id_rsa.pub >> authorized_keys 
 chmod 600 authorized_keys
 sudo service ssh restart
+```
+
+## ssh服务自启动
+```
+sudo systemctl enable ssh
 ```
 。">
 <meta property="og:type" content="article">
@@ -204,6 +214,9 @@ cd .ssh/
 cat id_rsa.pub &gt;&gt; authorized_keys 
 chmod 600 authorized_keys
 sudo service ssh restart
+</code></pre>
+<h2>ssh服务自启动</h2>
+<pre class="notranslate"><code class="notranslate">sudo systemctl enable ssh
 </code></pre></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
