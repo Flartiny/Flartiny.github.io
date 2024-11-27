@@ -205,7 +205,7 @@ const createWindow = () => {
 <meta property="og:url" content="https://Flartiny.github.io/post/electron-quick%20start-yu-dao-de-yi-xie-wen-ti.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/32789998?v=4">
 <title>electron-quick start遇到的一些问题</title>
-<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
 
 
 </head>
@@ -276,16 +276,17 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>volta安装过程比较简单就跳过了</p>
 <p><strong>问题</strong>：volta安装node时失败，Could not download Node version registry；Please verify your internet connection</p>
 <p>在volta安装路径比如<code class="notranslate">C:\Users\ ... \AppData\Local\Volta</code>新建hooks.json填入</p>
-<div class="highlight highlight-source-json"><pre class="notranslate">{
-    <span class="pl-ent">"node"</span>: {
-        <span class="pl-ent">"index"</span>: {
-            <span class="pl-ent">"template"</span>: <span class="pl-s"><span class="pl-pds">"</span>https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/index.json<span class="pl-pds">"</span></span>
+<pre lang="json" class="notranslate"><code class="notranslate">{
+    "node": {
+        "index": {
+            "template": "https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/index.json"
         },
-        <span class="pl-ent">"distro"</span>: {
-            <span class="pl-ent">"template"</span>: <span class="pl-s"><span class="pl-pds">"</span>https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/v{{version}}/{{filename}}<span class="pl-pds">"</span></span>
+        "distro": {
+            "template": "https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/v{{version}}/{{filename}}"
         }
     }
-}</pre></div>
+}
+</code></pre>
 <h2>正式创建之前</h2>
 <p>安装volta之后，在工作目录下<code class="notranslate">volta pin node@xx.xx.xx</code><br>
 <strong>问题</strong>：<code class="notranslate">npm install --save-dev electron</code>遇到unable to verify the first certificate<br>
@@ -299,111 +300,115 @@ cnpm install --save-dev electron
 </code></pre>
 <h2>quick start</h2>
 <p>package.json结构参考</p>
-<div class="highlight highlight-source-json"><pre class="notranslate">{
-  <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>first_electron_app<span class="pl-pds">"</span></span>,
-  <span class="pl-ent">"version"</span>: <span class="pl-s"><span class="pl-pds">"</span>1.0.0<span class="pl-pds">"</span></span>,
-  <span class="pl-ent">"description"</span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>,
-  <span class="pl-ent">"main"</span>: <span class="pl-s"><span class="pl-pds">"</span>main.js<span class="pl-pds">"</span></span>,
-  <span class="pl-ent">"scripts"</span>: {
-    <span class="pl-ent">"test"</span>: <span class="pl-s"><span class="pl-pds">"</span>echo <span class="pl-cce">\"</span>Error: no test specified<span class="pl-cce">\"</span> &amp;&amp; exit 1<span class="pl-pds">"</span></span>,
-    <span class="pl-ent">"start"</span>: <span class="pl-s"><span class="pl-pds">"</span>electron .<span class="pl-pds">"</span></span>
+<pre lang="json" class="notranslate"><code class="notranslate">{
+  "name": "first_electron_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1",
+    "start": "electron ."
   },
-  <span class="pl-ent">"author"</span>: <span class="pl-s"><span class="pl-pds">"</span>Flartiny<span class="pl-pds">"</span></span>,
-  <span class="pl-ent">"license"</span>: <span class="pl-s"><span class="pl-pds">"</span>ISC<span class="pl-pds">"</span></span>,
-  <span class="pl-ent">"volta"</span>: {
-    <span class="pl-ent">"node"</span>: <span class="pl-s"><span class="pl-pds">"</span>18.20.4<span class="pl-pds">"</span></span>
+  "author": "Flartiny",
+  "license": "ISC",
+  "volta": {
+    "node": "18.20.4"
   },
-  <span class="pl-ent">"devDependencies"</span>: {
-    <span class="pl-ent">"electron"</span>: <span class="pl-s"><span class="pl-pds">"</span>^32.0.2<span class="pl-pds">"</span></span>
+  "devDependencies": {
+    "electron": "^32.0.2"
   }
-}</pre></div>
+}
+</code></pre>
 <ol>
 <li>创建main.js</li>
 </ol>
-<div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-c">// main.js</span>
+<pre lang="JavaScript" class="notranslate"><code class="notranslate">// main.js
 
-<span class="pl-c">// Modules to control application life and create native browser window</span>
-<span class="pl-k">const</span> <span class="pl-kos">{</span> app<span class="pl-kos">,</span> BrowserWindow <span class="pl-kos">}</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">'electron'</span><span class="pl-kos">)</span>
-<span class="pl-k">const</span> <span class="pl-s1">path</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">'node:path'</span><span class="pl-kos">)</span>
+// Modules to control application life and create native browser window
+const { app, BrowserWindow } = require('electron')
+const path = require('node:path')
 
-<span class="pl-k">const</span> <span class="pl-en">createWindow</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-  <span class="pl-c">// Create the browser window.</span>
-  <span class="pl-k">const</span> <span class="pl-s1">mainWindow</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">BrowserWindow</span><span class="pl-kos">(</span><span class="pl-kos">{</span>
-    <span class="pl-c1">width</span>: <span class="pl-c1">800</span><span class="pl-kos">,</span>
-    <span class="pl-c1">height</span>: <span class="pl-c1">600</span><span class="pl-kos">,</span>
-    <span class="pl-c1">webPreferences</span>: <span class="pl-kos">{</span>
-      <span class="pl-c1">preload</span>: <span class="pl-s1">path</span><span class="pl-kos">.</span><span class="pl-en">join</span><span class="pl-kos">(</span><span class="pl-s1">__dirname</span><span class="pl-kos">,</span> <span class="pl-s">'preload.js'</span><span class="pl-kos">)</span>
-    <span class="pl-kos">}</span>
-  <span class="pl-kos">}</span><span class="pl-kos">)</span>
+const createWindow = () =&gt; {
+  // Create the browser window.
+  const mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
+  })
 
-  <span class="pl-c">// 加载 index.html</span>
-  <span class="pl-s1">mainWindow</span><span class="pl-kos">.</span><span class="pl-en">loadFile</span><span class="pl-kos">(</span><span class="pl-s">'index.html'</span><span class="pl-kos">)</span>
+  // 加载 index.html
+  mainWindow.loadFile('index.html')
 
-  <span class="pl-c">// 打开开发工具</span>
-  <span class="pl-c">// mainWindow.webContents.openDevTools()</span>
-<span class="pl-kos">}</span>
+  // 打开开发工具
+  // mainWindow.webContents.openDevTools()
+}
 
-<span class="pl-c">// 这段程序将会在 Electron 结束初始化</span>
-<span class="pl-c">// 和创建浏览器窗口的时候调用</span>
-<span class="pl-c">// 部分 API 在 ready 事件触发后才能使用。</span>
-<span class="pl-s1">app</span><span class="pl-kos">.</span><span class="pl-en">whenReady</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">then</span><span class="pl-kos">(</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-  <span class="pl-en">createWindow</span><span class="pl-kos">(</span><span class="pl-kos">)</span>
+// 这段程序将会在 Electron 结束初始化
+// 和创建浏览器窗口的时候调用
+// 部分 API 在 ready 事件触发后才能使用。
+app.whenReady().then(() =&gt; {
+  createWindow()
 
-  <span class="pl-s1">app</span><span class="pl-kos">.</span><span class="pl-en">on</span><span class="pl-kos">(</span><span class="pl-s">'activate'</span><span class="pl-kos">,</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-    <span class="pl-c">// 在 macOS 系统内, 如果没有已开启的应用窗口</span>
-    <span class="pl-c">// 点击托盘图标时通常会重新创建一个新窗口</span>
-    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-v">BrowserWindow</span><span class="pl-kos">.</span><span class="pl-en">getAllWindows</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-c1">length</span> <span class="pl-c1">===</span> <span class="pl-c1">0</span><span class="pl-kos">)</span> <span class="pl-en">createWindow</span><span class="pl-kos">(</span><span class="pl-kos">)</span>
-  <span class="pl-kos">}</span><span class="pl-kos">)</span>
-<span class="pl-kos">}</span><span class="pl-kos">)</span>
+  app.on('activate', () =&gt; {
+    // 在 macOS 系统内, 如果没有已开启的应用窗口
+    // 点击托盘图标时通常会重新创建一个新窗口
+    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+  })
+})
 
-<span class="pl-c">// 除了 macOS 外，当所有窗口都被关闭的时候退出程序。 因此, 通常</span>
-<span class="pl-c">// 对应用程序和它们的菜单栏来说应该时刻保持激活状态, </span>
-<span class="pl-c">// 直到用户使用 Cmd + Q 明确退出</span>
-<span class="pl-s1">app</span><span class="pl-kos">.</span><span class="pl-en">on</span><span class="pl-kos">(</span><span class="pl-s">'window-all-closed'</span><span class="pl-kos">,</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-  <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">process</span><span class="pl-kos">.</span><span class="pl-c1">platform</span> <span class="pl-c1">!==</span> <span class="pl-s">'darwin'</span><span class="pl-kos">)</span> <span class="pl-s1">app</span><span class="pl-kos">.</span><span class="pl-en">quit</span><span class="pl-kos">(</span><span class="pl-kos">)</span>
-<span class="pl-kos">}</span><span class="pl-kos">)</span>
+// 除了 macOS 外，当所有窗口都被关闭的时候退出程序。 因此, 通常
+// 对应用程序和它们的菜单栏来说应该时刻保持激活状态, 
+// 直到用户使用 Cmd + Q 明确退出
+app.on('window-all-closed', () =&gt; {
+  if (process.platform !== 'darwin') app.quit()
+})
 
-<span class="pl-c">// 在当前文件中你可以引入所有的主进程代码</span>
-<span class="pl-c">// 也可以拆分成几个文件，然后用 require 导入。</span></pre></div>
+// 在当前文件中你可以引入所有的主进程代码
+// 也可以拆分成几个文件，然后用 require 导入。
+</code></pre>
 <ol start="2">
 <li>创建index.html</li>
 </ol>
-<div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-c">&lt;!--index.html--&gt;</span>
-<span class="pl-c1">&lt;!DOCTYPE html<span class="pl-kos">&gt;</span></span>
-<span class="pl-kos">&lt;</span><span class="pl-ent">html</span> <span class="pl-c1">lang</span>="<span class="pl-s">en</span>"<span class="pl-kos">&gt;</span>
-  <span class="pl-kos">&lt;</span><span class="pl-ent">head</span><span class="pl-kos">&gt;</span>
-    <span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">charset</span>="<span class="pl-s">UTF-8</span>"<span class="pl-kos">&gt;</span>
-    <span class="pl-c">&lt;!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP --&gt;</span>
-    <span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">http-equiv</span>="<span class="pl-s">Content-Security-Policy</span>" <span class="pl-c1">content</span>="<span class="pl-s">default-src 'self'; script-src 'self'</span>"<span class="pl-kos">&gt;</span>
-    <span class="pl-kos">&lt;</span><span class="pl-ent">title</span><span class="pl-kos">&gt;</span>Hello World!<span class="pl-kos">&lt;/</span><span class="pl-ent">title</span><span class="pl-kos">&gt;</span>
-  <span class="pl-kos">&lt;/</span><span class="pl-ent">head</span><span class="pl-kos">&gt;</span>
-  <span class="pl-kos">&lt;</span><span class="pl-ent">body</span><span class="pl-kos">&gt;</span>
-    <span class="pl-kos">&lt;</span><span class="pl-ent">h1</span><span class="pl-kos">&gt;</span>Hello World!<span class="pl-kos">&lt;/</span><span class="pl-ent">h1</span><span class="pl-kos">&gt;</span>
-    We are using Node.js <span class="pl-kos">&lt;</span><span class="pl-ent">span</span> <span class="pl-c1">id</span>="<span class="pl-s">node-version</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">span</span><span class="pl-kos">&gt;</span>,
-    Chromium <span class="pl-kos">&lt;</span><span class="pl-ent">span</span> <span class="pl-c1">id</span>="<span class="pl-s">chrome-version</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">span</span><span class="pl-kos">&gt;</span>,
-    and Electron <span class="pl-kos">&lt;</span><span class="pl-ent">span</span> <span class="pl-c1">id</span>="<span class="pl-s">electron-version</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">span</span><span class="pl-kos">&gt;</span>.
+<pre lang="html" class="notranslate"><code class="notranslate">&lt;!--index.html--&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP --&gt;
+    &lt;meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"&gt;
+    &lt;title&gt;Hello World!&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    We are using Node.js &lt;span id="node-version"&gt;&lt;/span&gt;,
+    Chromium &lt;span id="chrome-version"&gt;&lt;/span&gt;,
+    and Electron &lt;span id="electron-version"&gt;&lt;/span&gt;.
 
-    <span class="pl-c">&lt;!-- 您也可以此进程中运行其他文件 --&gt;</span>
-    <span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">src</span>="<span class="pl-s">./renderer.js</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span>
-  <span class="pl-kos">&lt;/</span><span class="pl-ent">body</span><span class="pl-kos">&gt;</span>
-<span class="pl-kos">&lt;/</span><span class="pl-ent">html</span><span class="pl-kos">&gt;</span></pre></div>
+    &lt;!-- 您也可以此进程中运行其他文件 --&gt;
+    &lt;script src="./renderer.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 <ol start="3">
 <li>创建preload.js</li>
 </ol>
-<div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-c">// preload.js</span>
+<pre lang="JavaScript" class="notranslate"><code class="notranslate">// preload.js
 
-<span class="pl-c">// 所有的 Node.js API接口 都可以在 preload 进程中被调用.</span>
-<span class="pl-c">// 它拥有与Chrome扩展一样的沙盒。</span>
-<span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-en">addEventListener</span><span class="pl-kos">(</span><span class="pl-s">'DOMContentLoaded'</span><span class="pl-kos">,</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-    <span class="pl-k">const</span> <span class="pl-en">replaceText</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-s1">selector</span><span class="pl-kos">,</span> <span class="pl-s1">text</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
-      <span class="pl-k">const</span> <span class="pl-s1">element</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementById</span><span class="pl-kos">(</span><span class="pl-s1">selector</span><span class="pl-kos">)</span>
-      <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">element</span><span class="pl-kos">)</span> <span class="pl-s1">element</span><span class="pl-kos">.</span><span class="pl-c1">innerText</span> <span class="pl-c1">=</span> <span class="pl-s1">text</span>
-    <span class="pl-kos">}</span>
+// 所有的 Node.js API接口 都可以在 preload 进程中被调用.
+// 它拥有与Chrome扩展一样的沙盒。
+window.addEventListener('DOMContentLoaded', () =&gt; {
+    const replaceText = (selector, text) =&gt; {
+      const element = document.getElementById(selector)
+      if (element) element.innerText = text
+    }
   
-    <span class="pl-k">for</span> <span class="pl-kos">(</span><span class="pl-k">const</span> <span class="pl-s1">dependency</span> <span class="pl-k">of</span> <span class="pl-kos">[</span><span class="pl-s">'chrome'</span><span class="pl-kos">,</span> <span class="pl-s">'node'</span><span class="pl-kos">,</span> <span class="pl-s">'electron'</span><span class="pl-kos">]</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-      <span class="pl-en">replaceText</span><span class="pl-kos">(</span><span class="pl-s">`<span class="pl-s1"><span class="pl-kos">${</span><span class="pl-s1">dependency</span><span class="pl-kos">}</span></span>-version`</span><span class="pl-kos">,</span> <span class="pl-s1">process</span><span class="pl-kos">.</span><span class="pl-c1">versions</span><span class="pl-kos">[</span><span class="pl-s1">dependency</span><span class="pl-kos">]</span><span class="pl-kos">)</span>
-    <span class="pl-kos">}</span>
-  <span class="pl-kos">}</span><span class="pl-kos">)</span></pre></div>
+    for (const dependency of ['chrome', 'node', 'electron']) {
+      replaceText(`${dependency}-version`, process.versions[dependency])
+    }
+  })
+</code></pre>
 <hr>
 <p>参考：<br>
 知乎《解决npm安装electron总失败的问题》 <a href="https://zhuanlan.zhihu.com/p/562217675" rel="nofollow">https://zhuanlan.zhihu.com/p/562217675</a><br>
