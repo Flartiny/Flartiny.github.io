@@ -106,12 +106,12 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><p>找到wordpress的wp-includes目录下的class-wp.php文件</p>
-<div class="highlight highlight-text-html-php"><pre class="notranslate"><span class="pl-c">//wp-includes/class-wp.php</span>
+<div class="highlight highlight-text-html-php"><pre class="notranslate"><span class="pl-c">//wp<span class="pl-s1">-</span>includes/class-wp<span class="pl-kos">.</span>php</span>
  
 <span class="pl-s1"><span class="pl-c1">$</span>pathinfo</span> = <span class="pl-en">isset</span>( <span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_SERVER</span></span>[<span class="pl-s">'<span class="pl-s">PATH_INFO</span>'</span>] ) ? <span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_SERVER</span></span>[<span class="pl-s">'<span class="pl-s">PATH_INFO</span>'</span>] : <span class="pl-s">''</span>;
 <span class="pl-c">//修改为：</span>
 <span class="pl-s1"><span class="pl-c1">$</span>pathinfo</span> = <span class="pl-en">isset</span>( <span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_SERVER</span></span>[<span class="pl-s">'<span class="pl-s">PATH_INFO</span>'</span>] ) ? <span class="pl-en">mb_convert_encoding</span>(<span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_SERVER</span></span>[<span class="pl-s">'<span class="pl-s">PATH_INFO</span>'</span>], <span class="pl-s">'<span class="pl-s">utf-8</span>'</span>, <span class="pl-s">'<span class="pl-s">GBK</span>'</span>) : <span class="pl-s">''</span>;
-<span class="pl-c">//wp-includes/class-wp.php</span>
+<span class="pl-c">//wp<span class="pl-s1">-</span>includes/class-wp<span class="pl-kos">.</span>php</span>
 <span class="pl-en">list</span>( <span class="pl-s1"><span class="pl-c1">$</span>req_uri</span> ) = <span class="pl-en">explode</span>( <span class="pl-s">'<span class="pl-s">?</span>'</span>, <span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_SERVER</span></span>[<span class="pl-s">'<span class="pl-s">REQUEST_URI</span>'</span>] );
 <span class="pl-c">//修改为：</span>
 <span class="pl-en">list</span>( <span class="pl-s1"><span class="pl-c1">$</span>req_uri</span> ) = <span class="pl-en">explode</span>( <span class="pl-s">'<span class="pl-s">?</span>'</span>, <span class="pl-en">mb_convert_encoding</span>(<span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_SERVER</span></span>[<span class="pl-s">'<span class="pl-s">REQUEST_URI</span>'</span>], <span class="pl-s">'<span class="pl-s">utf-8</span>'</span>, <span class="pl-s">'<span class="pl-s">GBK</span>'</span>) );</pre></div></div>
